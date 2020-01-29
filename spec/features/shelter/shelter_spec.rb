@@ -27,12 +27,12 @@ RSpec.describe "shelter index page", type: :feature do
                                 city:     "Seattle",
                                 state:    "Washington",
                                 zip:      "98016")
-    visit "/shelters"
+    visit '/shelters'
 
-    expect(page).to have_content(@shelter_1.name)
-    expect(page).to have_content(@shelter_2.name)
-    expect(page).to have_content(@shelter_3.name)
-    expect(page).to have_content(@shelter_4.name)
-    expect(page).to have_content(@shelter_5.name)
+    expect(page).to have_content(shelter_1.name)
+    expect(page).to have_content(shelter_2.name)
+    expect(page).to have_content(shelter_3.name)
+    expect(page).to have_content(shelter_4.name)
+    expect(page).to have_content(shelter_5.name)
   end
 end
