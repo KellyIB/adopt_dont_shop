@@ -1,0 +1,11 @@
+<h1>Pet List</h1>
+
+<% @pets.each do |pet| %>
+  <h3>Meet: <%= pet.name %></h3>
+  <p><%= image_tag(pet.image, size: "275x200") %></p>
+  <p>Approximate Age= <%= pet.approximate_age %></p>
+  <p>Sex: <%= pet.sex %></p>
+  <p><%= pet.name %> can be found at: <%= pet.shelter.name %></p>
+  <br></br>
+<% end %>
+<%= link_to 'New Pet', '/pets/new' %>

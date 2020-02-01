@@ -1,0 +1,12 @@
+<a href="/pets">Pet Index</a>
+
+<h1><%= @pets.name %></h1>
+<p><%= image_tag(@pets.image) %></p>
+<br></br>
+<p><%= @pets.approximate_age %></p>
+<p><%= @pets.sex %></p>
+<p><%= @pets.shelter.name %></p>
+<br></br>
+<%= link_to "Update Pet", "/pets/#{@pets.id}/edit" %>
+<br></br>
+<%= button_to "Delete Pet", "/pets/#{@pets.id}", method: :delete %>
