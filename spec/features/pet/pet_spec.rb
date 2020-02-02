@@ -159,10 +159,6 @@ RSpec.describe "Pet index page", type: :feature do
     visit "/shelters/new"
     click_link("Pets Index")
     expect(current_path).to eq("/pets")
-
   end
-
-
-
 
 end
