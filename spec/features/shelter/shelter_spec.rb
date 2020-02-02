@@ -161,12 +161,16 @@ end
     expect(page).to have_content("Pete")
   end
 
-  it "can update a shelter from the index page" do
+  it "can have a valid link for update shelter from the index page" do
     visit '/shelters'
     click_link('Update Shelter', match: :first)
     expect(current_path).to eq("/shelters/#{@shelter_1.id}/edit")
-    
+  end
 
-
+  it "can have a valid link for delete shelter from the index page" do
+    visit '/shelters'
+    click_link('Delete Shelter', match: :first)
+    expect(current_path).to eq("/shelters")
+    expect(page).to_not have_content(@shelter_1.name)
   end
 end
