@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 RSpec.describe Pet do
 
   describe 'relationships' do

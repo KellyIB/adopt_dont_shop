@@ -1,12 +1,14 @@
 <a href="/pets">Pet Index</a>
 
-<h1><%= @pets.name %></h1>
-<p><%= image_tag(@pets.image) %></p>
+<h1>This is: <%= @pet.name %></h1>
+<p><%= image_tag(@pet.image) %></p>
 <br></br>
-<p><%= @pets.approximate_age %></p>
-<p><%= @pets.sex %></p>
-<p><%= @pets.shelter.name %></p>
+<p>Approximate Age is: <%= @pet.approximate_age %></p>
+<p>Description: <%= @pet.description %></p>
+<p>Gender: <%= @pet.sex %></p>
+<p>Adoption Status: <%= @pet.adoption_status %></p>
+<p>Available at: <%= @pet.shelter.name %></p>
 <br></br>
-<%= link_to "Update Pet", "/pets/#{@pets.id}/edit" %>
+<%= link_to "Update Pet", "/pets/#{@pet.id}/edit" %>
 <br></br>
-<%= button_to "Delete Pet", "/pets/#{@pets.id}", method: :delete %>
+<%= button_to "Delete Pet", "/pets/#{@pet.id}", method: :delete %>
