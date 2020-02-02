@@ -135,10 +135,32 @@ RSpec.describe "Pet index page", type: :feature do
     visit "/shelters/#{@shelter_1.id}/pets"
     click_link("#{@pet_4.name}")
     expect(current_path).to eq("/pets/#{@pet_4.id}")
-
-
   end
 
+  it "can have a valid pets link for every page" do
+    visit "/shelters/#{@shelter_1.id}/pets"
+    click_link("Pets Index")
+    expect(current_path).to eq("/pets")
+    visit "/pets/#{@pet_3.id}"
+    click_link("Pets Index")
+    expect(current_path).to eq("/pets")
+    visit "/shelters/#{@shelter_2.id}"
+    click_link("Pets Index")
+    expect(current_path).to eq("/pets")
+    visit "/shelters"
+    click_link("Pets Index")
+    expect(current_path).to eq("/pets")
+    visit "/pets/#{@pet_1.id}/edit"
+    click_link("Pets Index")
+    expect(current_path).to eq("/pets")
+    visit "/shelters/#{@shelter_2.id}/edit"
+    click_link("Pets Index")
+    expect(current_path).to eq("/pets")
+    visit "/shelters/new"
+    click_link("Pets Index")
+    expect(current_path).to eq("/pets")
+
+  end
 
 
 

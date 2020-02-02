@@ -1,3 +1,7 @@
+<%= link_to "Pets Index", "/pets" %>
+<br></br>
+
+
 <%= form_tag "/pets/#{@pet_id}", method: :patch do %>
 <%= label_tag :name %>
 <%= text_field_tag :name %>
