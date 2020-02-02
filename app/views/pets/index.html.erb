@@ -7,4 +7,7 @@
   <p>Sex: <%= pet.sex %></p>
   <p><%= pet.name %> can be found at: <%= pet.shelter.name %></p>
   <br></br>
+  <%= link_to "Update Pet", "/pets/#{pet.id}/edit" %>
+  <br></br>
+
 <% end %>

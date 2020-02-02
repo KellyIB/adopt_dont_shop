@@ -173,4 +173,12 @@ end
     expect(current_path).to eq("/shelters")
     expect(page).to_not have_content(@shelter_1.name)
   end
+
+  it "can have a valid link for update pet from the pet index page" do
+    visit '/pets'
+    click_link('Update Pet', match: :first)
+    expect(current_path).to eq("/pets/#{@pet_1.id}/edit")
+  end
+
+
 end

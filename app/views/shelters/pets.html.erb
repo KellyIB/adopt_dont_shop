@@ -8,7 +8,8 @@
   <p>Gender: <%= pet.sex %></p>
   <p>Adoption Status: <%= pet.adoption_status %></p>
   <br></br>
-  
+  <%= link_to "Update Pet", "/pets/#{pet.id}/edit" %>
+  <br></br>
 <% end %>
 <br></br>
 <%= link_to 'Create Pet', "/shelters/#{@shelter_pets.id}/pets/new" %>
