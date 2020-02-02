@@ -1,7 +1,6 @@
 <a href="/shelters">Shelter Index</a>
 
 <h1><%= @shelter.name %></h1>
-<br></br>
 <p><%= @shelter.address %></p>
 <p><%= @shelter.city %></p>
 <p><%= @shelter.state %></p>
@@ -9,7 +8,7 @@
 <br></br>
 <br></br>
 <%= link_to 'Pets', "/shelters/#{@shelter.id}/pets" %>
-
+<br></br>
 <%= link_to 'New Shelter', '/shelters/new' %>
 <br></br>
 <%= link_to "Update Shelter", "/shelters/#{@shelter.id}/edit" %>

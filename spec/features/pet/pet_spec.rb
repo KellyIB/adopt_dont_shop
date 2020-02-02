@@ -51,6 +51,13 @@ RSpec.describe "Pet index page", type: :feature do
                         sex:    "Male",
                         adoption_status: "available",
                         shelter_id: "#{@shelter_4.id}")
+    # @pet_3 = Pet.create(name:  "Pac Man",
+    #                     image: "https://www.australian-shepherd-lovers.com/image-files/dog-chewing.jpg",
+    #                     description: "Australian Shephard.  Has mild separation anxiety.  May need to be crated when alone.",
+    #                     approximate_age:  4,
+    #                     sex:    "Male",
+    #                     adoption_status: "available",
+    #                     shelter_id: "#{@shelter_4.id}")
     @pet_4 = Pet.create(name:  "Goofy",
                         image: "https://static.boredpanda.com/blog/wp-content/uploads/2016/09/dogs-catching-treats-fotos-frei-schnauze-christian-vieler-66-57e8d9d0ec7ee__880.jpg",
                         description: "Hound Mix. Well trained in basic commands. Will catch treats when thrown.",
@@ -62,7 +69,6 @@ RSpec.describe "Pet index page", type: :feature do
 
     it "can see a pet's information in the system" do
       visit "/pets/#{@pet_1.id}"
-      # save_and_open_page
       expect(page).to have_css("img[src*='#{@pet_1.image}']")
       expect(page).to have_content(@pet_1.name)
       expect(page).to have_content(@pet_1.approximate_age)
@@ -103,6 +109,12 @@ RSpec.describe "Pet index page", type: :feature do
       expect(page).not_to have_content("Zelda")
     end
 
+    it "can delete a pet" do
+      visit "/pets/#{@pet_3.id}"
+      click_button 'Delete Pet'
+      expect(current_path).to eq('/pets')
+      expect(page).not_to have_content("Pac Man")
+    end
 
 
 

@@ -85,6 +85,7 @@ RSpec.describe "shelters index page", type: :feature do
 
   it "can see all the pets available at a shelter" do
     visit "/shelters/#{@shelter_1.id}"
+    # save_and_open_page
     click_link('Pets')
     expect(current_path).to eq("/shelters/#{@shelter_1.id}/pets")
     expect(page).to have_css("img[src*='#{@pet_1.image}']")
@@ -101,30 +102,26 @@ RSpec.describe "shelters index page", type: :feature do
     expect(page).to have_content(@pet_4.adoption_status)
 end
 
-
-
-
-
-
-
-  # it "can create a new pet" do
-  #   visit '/shelters/'
-  #   click_link('Create Pet', match: :first)
-  #   # click_link('Create Pet')
-  #   expect(current_path).to eq("/shelters/#{@shelter_1.id}/pets/new")
-  #   fill_in :name, with: "Pete"
-  #   fill_in :image, with: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pinterest.com%2Fpin%2F17662623516709631%2F&psig=AOvVaw0vSWcpDg3sLDqzZyhBMEKG&ust=1580673220476000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCICMpeCQsecCFQAAAAAdAAAAABAI"
-  #   fill_in :description, with: "Basset Hound. Likes to lay around and mope.  Hates Cats"
-  #   fill_in :sex, with: "Male"
-  #   fill_in :adoption_status, with: "Available"
-  #   binding.pry
-  #   click_on 'Create Pet'
-  #   save_and_open_page
-  #
-  #
-  #   expect(current_path).to eq('/shelters')
-  #   expect(page).to have_content("Pete")
-  # end
+#   it "can create a new pet" do
+#       visit "/shelters/#{@shelter_1.id}/pets"
+#       # save_and_open_page
+#     click_link('Create Pet')
+#     # save_and_open_page
+#     expect(current_path).to eq("/shelters/#{@shelter_1.id}/pets/new")
+#     fill_in :name, with: "Pete"
+# image: "https://i.ytimg.com/vi/3dcli9i_pvA/hqdefault.jpg"
+#     # fill_in :image, with: "https://static.boredpanda.com/blog/wp-content/uploads/2016/09/dogs-catching-treats-fotos-frei-schnauze-christian-vieler-66-57e8d9d0ec7ee__880.jpg"
+#     fill_in :image, with: "https://www.southernshores.com/images/layout/dog-vacation-information.png"
+#     fill_in :description, with: "Basset Hound. Likes to lay around and mope.  Hates Cats"
+#     fill_in :approximate_age, with: "7"
+#     fill_in :sex, with: "Male"
+#     fill_in :adoption_status, with: "Available"
+#     # binding.pry
+#     click_on 'Create Pet'
+#     save_and_open_page
+#     expect(current_path).to eq("/shelters/#{@shelter_1.id}/pets")
+#     expect(page).to have_content("Pete")
+#   end
 
 
   it "can update an existing shelter" do
@@ -170,5 +167,22 @@ end
     expect(current_path).to eq('/shelters')
     expect(page).to have_content("Bob's Barkers")
   end
+
+  it "can create a new pet" do
+    visit "/shelters/#{@shelter_1.id}/pets"
+    click_link('Create Pet')
+    expect(current_path).to eq("/shelters/#{@shelter_1.id}/pets/new")
+    fill_in :name, with: "Pete"
+    fill_in :image, with: "https://i.ytimg.com/vi/3dcli9i_pvA/hqdefault.jpg"
+    fill_in :description, with: "Basset Hound. Likes to lay around and mope.  Hates Cats"
+    fill_in :approximate_age, with: "7"
+    fill_in :sex, with: "Male"
+    fill_in :adoption_status, with: "Available"
+    click_on 'Create Pet'
+
+    expect(current_path).to eq("/shelters/#{@shelter_1.id}/pets")
+    expect(page).to have_content("Pete")
+  end
+
 
 end
