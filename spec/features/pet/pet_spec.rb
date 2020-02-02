@@ -128,6 +128,16 @@ RSpec.describe "Pet index page", type: :feature do
     expect(page).not_to have_content("Zelda")
   end
 
+  it "can have a valid pet link for every pet name" do
+    visit "/pets"
+    click_link("#{@pet_1.name}")
+    expect(current_path).to eq("/pets/#{@pet_1.id}")
+    visit "/shelters/#{@shelter_1.id}/pets"
+    click_link("#{@pet_4.name}")
+    expect(current_path).to eq("/pets/#{@pet_4.id}")
+
+
+  end
 
 
 
