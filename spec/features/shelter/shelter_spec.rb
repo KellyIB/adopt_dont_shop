@@ -174,10 +174,17 @@ end
     expect(page).to_not have_content(@shelter_1.name)
   end
 
-  it "can have a valid link for update pet from the pet index page" do
-    visit '/pets'
+  it "can have a valid link for update pet from the shelters/pets index page" do
+    visit "/shelters/#{@shelter_1.id}/pets"
     click_link('Update Pet', match: :first)
     expect(current_path).to eq("/pets/#{@pet_1.id}/edit")
+  end
+
+  it "can delete a pet from the shelters/pets index page" do
+    visit "/shelters/#{@shelter_1.id}/pets"
+    click_link('Delete Pet', match: :first)
+    expect(current_path).to eq("/pets")
+    expect(page).not_to have_content("Zelda")
   end
 
 
