@@ -7,7 +7,7 @@
 <p>Description: <%= @pet.description %></p>
 <p>Gender: <%= @pet.sex %></p>
 <p>Adoption Status: <%= @pet.adoption_status %></p>
-<p>Available at: <%= @pet.shelter.name %></p>
+<p>Available at: <%= link_to "#{@pet.shelter.name}", "/shelters/#{@pet.shelter.id}"%></p>
 <br></br>
 <%= link_to "Update Pet", "/pets/#{@pet.id}/edit" %>
 <br></br>

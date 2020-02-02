@@ -187,5 +187,15 @@ end
     expect(page).not_to have_content("Zelda")
   end
 
+  it "can have a valid show link for every shelter name" do
+    visit "/pets"
+    click_link("#{@shelter_1.name}", match: :first)
+    expect(current_path).to eq("/shelters/#{@shelter_1.id}")
+    visit "/pets/#{@pet_1.id}"
+    click_link("#{@shelter_1.name}", match: :first)
+    expect(current_path).to eq("/shelters/#{@shelter_1.id}")
+
+
+  end
 
 end
