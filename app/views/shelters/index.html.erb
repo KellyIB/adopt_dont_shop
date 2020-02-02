@@ -4,5 +4,9 @@
   <h2><a href="/shelters/<% shelter.id %>"><%= shelter.name %></a></h2>
   <%= link_to 'Create Pet', "/shelters/#{shelter.id}/pets/new", :id => "n#{shelter.id}" %>
   <br></br>
+  <br></br>
+  <%= link_to "Update Shelter", "/shelters/#{shelter.id}/edit" %>
+  <br></br>
+
 <% end %>
 <%= link_to 'New Shelter', '/shelters/new' %>
