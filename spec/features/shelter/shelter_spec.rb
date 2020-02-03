@@ -200,25 +200,25 @@ end
 
   it "can have a valid shelters link for every page" do
     visit "/shelters/#{@shelter_1.id}/pets"
-    click_link("Shelters Index")
+    click_link("Shelter Index")
     expect(current_path).to eq("/shelters")
     visit "/pets/#{@pet_3.id}"
-    click_link("Shelters Index")
+    click_link("Shelter Index")
     expect(current_path).to eq("/shelters")
     visit "/shelters/#{@shelter_2.id}"
-    click_link("Shelters Index")
+    click_link("Shelter Index")
     expect(current_path).to eq("/shelters")
     visit "/pets"
-    click_link("Shelters Index")
+    click_link("Shelter Index")
     expect(current_path).to eq("/shelters")
     visit "/pets/#{@pet_1.id}/edit"
-    click_link("Shelters Index")
+    click_link("Shelter Index")
     expect(current_path).to eq("/shelters")
     visit "/shelters/#{@shelter_2.id}/edit"
-    click_link("Shelters Index")
+    click_link("Shelter Index")
     expect(current_path).to eq("/shelters")
     visit "/shelters/new"
-    click_link("Shelters Index")
+    click_link("Shelter Index")
     expect(current_path).to eq("/shelters")
   end
 end

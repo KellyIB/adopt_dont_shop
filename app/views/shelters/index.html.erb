@@ -1,17 +1,15 @@
-<%= link_to "Pets Index", "/pets" %>
+<h3><%= link_to "Pets Index", "/pets" %></h3>
+<%= link_to 'New Shelter', '/shelters/new' %>
+
 <br></br>
-
 <h1>Shelters List</h1>
-
 <% @shelters.each do |shelter| %>
-  <h2><%= link_to "#{shelter.name}", "/shelters/#{shelter.id}"%></a></h2>
-  <%= link_to 'Create Pet', "/shelters/#{shelter.id}/pets/new", :id => "n#{shelter.id}" %>
-  <br></br>
-  <br></br>
-  <%= link_to "Update Shelter", "/shelters/#{shelter.id}/edit" %>
-  <br></br>
-  <%= link_to "Delete Shelter", "/shelters/#{shelter.id}", method: :delete %>
+  <h2><%= link_to "#{shelter.name}", "/shelters/#{shelter.id}"%></h2>
+  <p><%= link_to 'Create Pet', "/shelters/#{shelter.id}/pets/new", :id => "n#{shelter.id}" %></p>
+
+  <p><%= link_to "Update Shelter", "/shelters/#{shelter.id}/edit" %></p>
+
+  <p><%= link_to "Delete Shelter", "/shelters/#{shelter.id}", method: :delete %></p>
+
   <br></br>
 <% end %>
-
-<%= link_to 'New Shelter', '/shelters/new' %>
