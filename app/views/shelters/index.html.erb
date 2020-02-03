@@ -4,7 +4,7 @@
 <h1>Shelters List</h1>
 
 <% @shelters.each do |shelter| %>
-  <h2><a href="/shelters/<% shelter.id %>"><%= shelter.name %></a></h2>
+  <h2><%= link_to "#{shelter.name}", "/shelters/#{shelter.id}"%></a></h2>
   <%= link_to 'Create Pet', "/shelters/#{shelter.id}/pets/new", :id => "n#{shelter.id}" %>
   <br></br>
   <br></br>
@@ -13,4 +13,5 @@
   <%= link_to "Delete Shelter", "/shelters/#{shelter.id}", method: :delete %>
   <br></br>
 <% end %>
+
 <%= link_to 'New Shelter', '/shelters/new' %>
