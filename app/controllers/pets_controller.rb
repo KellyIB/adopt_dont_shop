@@ -7,9 +7,7 @@ class PetsController < ApplicationController
 
   def new
     @shelter_id = params[:id]
-    # binding.pry
   end
-
 
   def show
     @pet = Pet.find(params[:id])
@@ -40,7 +38,6 @@ class PetsController < ApplicationController
   end
 
     private
-
       def pet_params
         params.permit(:name, :image, :description, :approximate_age, :sex, :adoption_status, :shelter_id)
       end

@@ -17,9 +17,9 @@ class SheltersController < ApplicationController
 
   def create
     shelter = Shelter.new(shelter_params)
-      shelter.save
-      redirect_to '/shelters'
-    end
+    shelter.save
+    redirect_to '/shelters'
+  end
 
   def edit
     @shelter_id = params[:id]
@@ -38,7 +38,6 @@ class SheltersController < ApplicationController
   end
 
     private
-
       def shelter_params
         params.permit(:name, :address, :city, :state, :zip)
       end

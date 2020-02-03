@@ -3,7 +3,6 @@
 <%= link_to "Pets Index", "/pets" %>
 <br></br>
 
-
 <h1>Pet List</h1>
 <% @shelter_pets.pets.each do |pet| %>
   <h3>Meet: <%= link_to "#{pet.name}", "/pets/#{pet.id}"%></h3>

@@ -139,7 +139,6 @@ end
     fill_in :state, with: "California"
     fill_in :zip, with: "90005"
     click_on 'Create Shelter'
-
     expect(current_path).to eq('/shelters')
     expect(page).to have_content("Bob's Barkers")
   end
@@ -156,7 +155,6 @@ end
     click_on 'Create Pet'
     expect(current_path).to eq("/shelters/#{@shelter_1.id}/pets")
     expect(page).to have_content("Pete")
-    save_and_open_page
   end
 
   it "can have a valid link for update shelter from the index page" do
@@ -198,32 +196,29 @@ end
     visit "/shelters/#{@shelter_1.id}"
     click_link("Pets")
     expect(current_path).to eq("/shelters/#{@shelter_1.id}/pets")
-    # visit "/pets/#{@pet_1.id}"
-    # click_link("#{@shelter_1.name}", match: :first)
-    # expect(current_path).to eq("/shelters/#{@shelter_1.id}")
   end
 
-    it "can have a valid shelters link for every page" do
-      visit "/shelters/#{@shelter_1.id}/pets"
-      click_link("Shelters Index")
-      expect(current_path).to eq("/shelters")
-      visit "/pets/#{@pet_3.id}"
-      click_link("Shelters Index")
-      expect(current_path).to eq("/shelters")
-      visit "/shelters/#{@shelter_2.id}"
-      click_link("Shelters Index")
-      expect(current_path).to eq("/shelters")
-      visit "/pets"
-      click_link("Shelters Index")
-      expect(current_path).to eq("/shelters")
-      visit "/pets/#{@pet_1.id}/edit"
-      click_link("Shelters Index")
-      expect(current_path).to eq("/shelters")
-      visit "/shelters/#{@shelter_2.id}/edit"
-      click_link("Shelters Index")
-      expect(current_path).to eq("/shelters")
-      visit "/shelters/new"
-      click_link("Shelters Index")
-      expect(current_path).to eq("/shelters")
-    end
+  it "can have a valid shelters link for every page" do
+    visit "/shelters/#{@shelter_1.id}/pets"
+    click_link("Shelters Index")
+    expect(current_path).to eq("/shelters")
+    visit "/pets/#{@pet_3.id}"
+    click_link("Shelters Index")
+    expect(current_path).to eq("/shelters")
+    visit "/shelters/#{@shelter_2.id}"
+    click_link("Shelters Index")
+    expect(current_path).to eq("/shelters")
+    visit "/pets"
+    click_link("Shelters Index")
+    expect(current_path).to eq("/shelters")
+    visit "/pets/#{@pet_1.id}/edit"
+    click_link("Shelters Index")
+    expect(current_path).to eq("/shelters")
+    visit "/shelters/#{@shelter_2.id}/edit"
+    click_link("Shelters Index")
+    expect(current_path).to eq("/shelters")
+    visit "/shelters/new"
+    click_link("Shelters Index")
+    expect(current_path).to eq("/shelters")
+  end
 end
